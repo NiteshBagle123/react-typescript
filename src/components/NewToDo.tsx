@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import './NewTodo.css';
 
 interface NewToDoProps {
     onAddToDo: (todoText: string) => void

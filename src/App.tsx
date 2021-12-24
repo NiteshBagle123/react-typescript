@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ToDoList from './components/ToolList';
+import ToDoList from './components/ToDoList';
 import NewToDo from './components/NewToDo';
 import { Todo } from './todo.model';
 
@@ -15,10 +15,15 @@ const App: React.FC = () => {
         }
       ])
   }
+
+  const todoDeleteHandler = (todoId: string) => {
+    setToDos(prevToDos => prevToDos.filter(todo => todo.id !== todoId))
+  }
+
   return (
     <div>
       <NewToDo onAddToDo={newToDoAddHandler}/>
-      <ToDoList items={todos} />
+      <ToDoList items={todos} onDeleteToDo={todoDeleteHandler}/>
     </div>
   )
 };
